@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeCriar" />
 
     <TextView
         android:id="@+id/textView5"
@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintTop_toBottomOf="@+id/metaCriar" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/nomeCriar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/metaCriar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/btnImg1Criar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -119,20 +119,20 @@
         app:srcCompat="@drawable/porquinho" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/btnImg2Criar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton9"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintEnd_toStartOf="@+id/btnImg3Criar"
+        app:layout_constraintStart_toEndOf="@+id/btnImg1Criar"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:srcCompat="@drawable/celular" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/btnImg3Criar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -143,7 +143,7 @@
         app:srcCompat="@drawable/casamento" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCriar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
@@ -155,7 +155,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+        app:layout_constraintTop_toBottomOf="@+id/btnImg2Criar" />
 
     <RadioGroup
         android:layout_width="wrap_content"
