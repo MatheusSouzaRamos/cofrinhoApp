@@ -35,14 +35,23 @@ class MainActivity2 : AppCompatActivity() {
                 Toast.makeText(this,
                     "Nome: $nome, Meta: $meta, Imagem: $imagem",
                     Toast.LENGTH_SHORT).show();
+
+                //AÇÃO DE SALVAR NO BANCO
+
+
+                Toast.makeText(this,
+                    "O Cofrinho foi criado!",
+                    Toast.LENGTH_SHORT).show();
+
+                finish()
+
+
             }else{
                 Toast.makeText(this,
                     "Preencha todos os campos!",
                     Toast.LENGTH_SHORT).show();
             }
         }
-
-
 
         binding.btnRtn.setOnClickListener {
             finish()
