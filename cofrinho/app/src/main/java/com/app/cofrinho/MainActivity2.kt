@@ -1,22 +1,34 @@
 package com.app.cofrinho
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
+import com.app.cofrinho.database.CofrinhoDatabase
+import com.app.cofrinho.database.entity.Cofrinho
 import com.app.cofrinho.databinding.ActivityMain2Binding
 import com.app.cofrinho.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // binding para facilitar as chamadas
         val binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val db = CofrinhoDatabase.getDatabase(this)
+        val cofrinhoDao = db.cofrinhoDao()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -29,22 +41,19 @@ class MainActivity2 : AppCompatActivity() {
             val nome = binding.nomeCriar.text.toString().trim()
             val metaStr = binding.metaCriar.text.toString().trim()
             val meta = metaStr.toDoubleOrNull()
-            val imagem = 1 // IMPLEMENTAR
+            val imagem: Long = 1 // IMPLEMENTAR
 
             if(!nome.isEmpty() && meta != null && imagem != null) {
-                Toast.makeText(this,
-                    "Nome: $nome, Meta: $meta, Imagem: $imagem",
-                    Toast.LENGTH_SHORT).show();
 
-                //AÇÃO DE SALVAR NO BANCO
-
+                lifecycleScope.launch(Dispatchers.IO){
+                    cofrinhoDao.save(Cofrinho(nome = nome, meta = meta, img = imagem))
+                }
 
                 Toast.makeText(this,
                     "O Cofrinho foi criado!",
                     Toast.LENGTH_SHORT).show();
 
                 finish()
-
 
             }else{
                 Toast.makeText(this,
