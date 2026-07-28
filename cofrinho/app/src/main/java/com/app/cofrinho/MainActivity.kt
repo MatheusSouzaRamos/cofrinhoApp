@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val db = CofrinhoDatabase.getDatabase(this)
+        val cofrinhoDao = db.cofrinhoDao()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -33,7 +36,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnNew.setOnClickListener {
-            irParaTelaCadastro()
+
+            lifecycleScope.launch(Dispatchers.IO){
+                val busca = cofrinhoDao.findAll().size
+
+                if(busca >= 4){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@MainActivity,
+                            "Só são permitidos 4 Cofrinhos!",
+                            Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }else{
+                    irParaTelaCadastro()
+                }
+
+
+
+            }
+
+//
         }
     }
 

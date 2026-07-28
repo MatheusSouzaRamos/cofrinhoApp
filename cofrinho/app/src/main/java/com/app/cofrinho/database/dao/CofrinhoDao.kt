@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CofrinhoDao {
     @Query("SELECT * FROM cofrinho")
-    fun findAll(): Flow<List<Cofrinho>>
+    fun findAll(): List<Cofrinho>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(cofrinho: Cofrinho)
