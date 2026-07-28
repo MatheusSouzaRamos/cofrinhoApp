@@ -7,8 +7,10 @@ import androidx.room.PrimaryKey
 data class Cofrinho (
     @PrimaryKey(autoGenerate = true)
     val id: Long,
+
     val nome: String,
     val meta: Double,
+
     val moeda1: Long,
     val moeda50: Long,
     val moeda25: Long,
