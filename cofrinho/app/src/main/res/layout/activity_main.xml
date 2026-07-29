@@ -12,6 +12,7 @@
     <!-- BLOCO QUE CARREGA MAIS DE UMA MOEDA-->
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -40,7 +41,7 @@
                     app:srcCompat="@drawable/moeda1" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/txtM1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -56,7 +57,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/btnAM1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -65,7 +66,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/btnBM1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -86,14 +87,14 @@
                     app:srcCompat="@drawable/moeda50" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txtM50"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="casual"
                     android:text="Quantidade:"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -102,7 +103,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/btnAM50"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -111,7 +112,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/btnBM50"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -146,7 +147,7 @@
                     app:srcCompat="@drawable/moeda25" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/txtM25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -162,7 +163,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/btnAM25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -171,7 +172,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button6"
+                        android:id="@+id/btnBM25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -192,14 +193,14 @@
                     app:srcCompat="@drawable/moeda10" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtM10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="casual"
                     android:text="Quantidade:"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -208,7 +209,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button7"
+                        android:id="@+id/btnAM10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -217,7 +218,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button8"
+                        android:id="@+id/btnBM10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -248,7 +249,7 @@
                     app:srcCompat="@drawable/moeda5" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/txtM5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -264,7 +265,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button9"
+                        android:id="@+id/btnAM5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -273,7 +274,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button10"
+                        android:id="@+id/btnBM5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -294,14 +295,14 @@
                     app:srcCompat="@drawable/nota2" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/txtN2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="casual"
                     android:text="Quantidade:"
                     android:textColor="@color/black"
-                    android:layout_gravity="center"
                     android:textSize="20sp" />
 
                 <LinearLayout
@@ -310,7 +311,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button11"
+                        android:id="@+id/btnAN1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
@@ -319,7 +320,7 @@
                         android:text="-" />
 
                     <Button
-                        android:id="@+id/button12"
+                        android:id="@+id/btnBN2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -331,7 +332,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
@@ -354,10 +355,10 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/txtNome">
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txtTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
@@ -367,7 +368,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/txtQtd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -376,6 +377,28 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Confirmar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageButton
+        android:id="@+id/btnSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/engrenagem" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

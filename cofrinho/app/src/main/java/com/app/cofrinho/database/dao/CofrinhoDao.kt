@@ -12,9 +12,18 @@ interface CofrinhoDao {
     @Query("SELECT * FROM cofrinho")
     fun findAll(): List<Cofrinho>
 
+    @Query("SELECT * FROM cofrinho WHERE id = :id")
+    fun findById(id: Long): Cofrinho
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(cofrinho: Cofrinho)
 
     @Query("SELECT COUNT(*) FROM cofrinho")
     suspend fun count(): Int
+
+    @Query("SELECT moeda1 + (moeda50 * 0.5) + (moeda25 * 0.25) + (moeda10 * 0.10) + (moeda5 * 0.05) + (nota2 * 2) AS TOTAL FROM cofrinho WHERE id = :id")
+    suspend fun total(id: Long): Double
+
+    @Query("SELECT moeda1 + moeda50 + moeda25 + moeda10 + moeda5 + nota2 AS TOTAL FROM cofrinho WHERE id = :id")
+    suspend fun quantidade(id: Long): Long
 }
