@@ -46,7 +46,7 @@ class MainActivity2 : AppCompatActivity() {
             if(!nome.isEmpty() && meta != null && imagem != null) {
 
                 lifecycleScope.launch(Dispatchers.IO){
-                    cofrinhoDao.save(Cofrinho(nome = nome, meta = meta, img = imagem))
+                    cofrinhoDao.save(Cofrinho(nome = nome, meta = meta))
                 }
 
                 Toast.makeText(this,

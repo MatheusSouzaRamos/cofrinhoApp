@@ -11,8 +11,6 @@ data class Cofrinho (
     val nome: String,
     val meta: Double,
 
-    val img: Long,
-
     val moeda1: Long = 0,
     val moeda50: Long = 0,
     val moeda25: Long = 0,

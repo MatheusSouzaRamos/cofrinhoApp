@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.app.cofrinho.database.CofrinhoDatabase
+import com.app.cofrinho.database.entity.Cofrinho
 import com.app.cofrinho.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.count
@@ -35,32 +36,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnNew.setOnClickListener {
-
-            lifecycleScope.launch(Dispatchers.IO){
-                val busca = cofrinhoDao.findAll().size
-
-                if(busca >= 4){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@MainActivity,
-                            "Só são permitidos 4 Cofrinhos!",
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }else{
-                    irParaTelaCadastro()
-                }
-
-
-
+        lifecycleScope.launch(Dispatchers.IO){
+            val busca = cofrinhoDao.count()
+            if(busca == 0){
+                cofrinhoDao.save(Cofrinho(nome = "Cofrinho", meta = 0.0))
             }
-
-//
         }
-    }
-
-    private fun irParaTelaCadastro(){
-        val intent = Intent(this@MainActivity, MainActivity2::class.java)
-        startActivity(intent)
     }
 }

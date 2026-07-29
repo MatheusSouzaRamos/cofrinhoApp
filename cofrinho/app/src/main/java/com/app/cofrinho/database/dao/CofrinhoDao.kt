@@ -15,6 +15,6 @@ interface CofrinhoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(cofrinho: Cofrinho)
 
-    @Query("DELETE FROM cofrinho WHERE id = :cofrinhoId")
-    fun deleteById(cofrinhoId: Long)
+    @Query("SELECT COUNT(*) FROM cofrinho")
+    suspend fun count(): Int
 }
