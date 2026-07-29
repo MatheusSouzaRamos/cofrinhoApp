@@ -65,37 +65,127 @@ class MainActivity : AppCompatActivity() {
         binding.btnBM1.setOnClickListener {
             var valor = binding.txtM1.text.toString().toLong()
             valor += 1
-            binding.txtM1.text = valor.toString()
+            binding.txtM1.setText(valor.toString())
         }
 
         binding.btnBM50.setOnClickListener {
             var valor = binding.txtM50.text.toString().toLong()
             valor += 1
-            binding.txtM50.text = valor.toString()
+            binding.txtM50.setText(valor.toString())
         }
 
         binding.btnBM25.setOnClickListener {
             var valor = binding.txtM25.text.toString().toLong()
             valor += 1
-            binding.txtM25.text = valor.toString()
+            binding.txtM25.setText(valor.toString())
         }
 
         binding.btnBM10.setOnClickListener {
             var valor = binding.txtM10.text.toString().toLong()
             valor += 1
-            binding.txtM10.text = valor.toString()
+            binding.txtM10.setText(valor.toString())
         }
 
         binding.btnBM5.setOnClickListener {
             var valor = binding.txtM5.text.toString().toLong()
             valor += 1
-            binding.txtM5.text = valor.toString()
+            binding.txtM5.setText(valor.toString())
         }
 
         binding.btnBN2.setOnClickListener {
             var valor = binding.txtN2.text.toString().toLong()
             valor += 1
-            binding.txtN2.text = valor.toString()
+            binding.txtN2.setText(valor.toString())
+        }
+
+        binding.btnAM1.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).moeda1
+                }
+                var valor = binding.txtM1.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtM1.setText("0")
+                }else{
+                    binding.txtM1.setText(valor.toString())
+                }
+            }
+        }
+
+        binding.btnAM50.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).moeda50
+                }
+                var valor = binding.txtM50.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtM50.setText("0")
+                }else{
+                    binding.txtM50.setText(valor.toString())
+                }
+            }
+        }
+
+        binding.btnAM25.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).moeda25
+                }
+                var valor = binding.txtM25.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtM25.setText("0")
+                }else{
+                    binding.txtM25.setText(valor.toString())
+                }
+            }
+        }
+
+        binding.btnAM10.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).moeda10
+                }
+                var valor = binding.txtM10.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtM10.setText("0")
+                }else{
+                    binding.txtM10.setText(valor.toString())
+                }
+            }
+        }
+
+        binding.btnAM5.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).moeda5
+                }
+                var valor = binding.txtM5.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtM5.setText("0")
+                }else{
+                    binding.txtM5.setText(valor.toString())
+                }
+            }
+        }
+
+        binding.btnAN2.setOnClickListener {
+            lifecycleScope.launch {
+                val busca = withContext(Dispatchers.IO){
+                    cofrinhoDao.findById(1).nota2
+                }
+                var valor = binding.txtN2.text.toString().toLong()
+                valor -= 1
+                if(valor < busca){
+                    binding.txtN2.setText("0")
+                }else{
+                    binding.txtN2.setText(valor.toString())
+                }
+            }
         }
 
 
