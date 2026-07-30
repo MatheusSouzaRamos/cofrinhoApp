@@ -19,7 +19,7 @@
         android:fontFamily="casual"
         android:padding="5dp"
         android:shadowColor="@color/black"
-        android:text="Criar novo Cofrinho"
+        android:text="Editar Cofrinho"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -60,22 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeCriar" />
 
-    <TextView
-        android:id="@+id/txtImagemEditar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="casual"
-        android:text="Imagem"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/metaCriar" />
-
     <EditText
         android:id="@+id/nomeCriar"
         android:layout_width="0dp"
@@ -107,55 +91,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMetaEditar" />
 
-    <ImageButton
-        android:id="@+id/btnImg1Criar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
-        app:srcCompat="@drawable/porquinho" />
-
-    <ImageButton
-        android:id="@+id/btnImg2Criar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/btnImg3Criar"
-        app:layout_constraintStart_toEndOf="@+id/btnImg1Criar"
-        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
-        app:srcCompat="@drawable/celular" />
-
-    <ImageButton
-        android:id="@+id/btnImg3Criar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="64dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
-        app:srcCompat="@drawable/casamento" />
-
     <Button
         android:id="@+id/btnEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="128dp"
         android:backgroundTint="@android:color/holo_green_light"
         android:fontFamily="casual"
-        android:text="Criar"
+        android:text="Editar"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnImg2Criar" />
+        app:layout_constraintTop_toBottomOf="@+id/metaCriar" />
 
     <Button
         android:id="@+id/btnRtn"

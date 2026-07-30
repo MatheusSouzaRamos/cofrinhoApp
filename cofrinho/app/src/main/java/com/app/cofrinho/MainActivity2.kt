@@ -17,6 +17,7 @@ import com.app.cofrinho.databinding.ActivityMain2Binding
 import com.app.cofrinho.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +36,7 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
+        
         binding.btnEditar.setOnClickListener {
             val nome = binding.nomeCriar.text.toString().trim()
             val metaStr = binding.metaCriar.text.toString().trim()
@@ -44,15 +44,15 @@ class MainActivity2 : AppCompatActivity() {
 
 
             if(!nome.isEmpty() && meta != null) {
-
-                lifecycleScope.launch(Dispatchers.IO){
-                    cofrinhoDao.save(Cofrinho(nome = nome, meta = meta))
+                lifecycleScope.launch{
+                    withContext(Dispatchers.IO){
+                        cofrinhoDao.edit(1, nome = nome, meta = meta)
+                    }
                 }
 
                 Toast.makeText(this,
-                    "O Cofrinho foi criado!",
+                    "O Cofrinho foi editado!",
                     Toast.LENGTH_SHORT).show();
-
                 finish()
 
             }else{

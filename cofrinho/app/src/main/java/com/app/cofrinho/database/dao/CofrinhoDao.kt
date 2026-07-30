@@ -26,4 +26,7 @@ interface CofrinhoDao {
 
     @Query("SELECT moeda1 + moeda50 + moeda25 + moeda10 + moeda5 + nota2 AS TOTAL FROM cofrinho WHERE id = :id")
     suspend fun quantidade(id: Long): Long
+
+    @Query("UPDATE cofrinho SET nome = :nome, meta = :meta WHERE id = :id")
+    suspend fun edit(id: Long, nome: String, meta: Double)
 }
