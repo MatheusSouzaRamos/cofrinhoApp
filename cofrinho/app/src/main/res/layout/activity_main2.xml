@@ -9,7 +9,7 @@
     tools:context=".MainActivity2">
 
     <TextView
-        android:id="@+id/txtCriar"
+        android:id="@+id/txtEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtM50"
+        android:id="@+id/txtNomeEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -42,10 +42,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCriar" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEditar" />
 
     <TextView
-        android:id="@+id/txtM10"
+        android:id="@+id/txtMetaEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nomeCriar" />
 
     <TextView
-        android:id="@+id/txtM5"
+        android:id="@+id/txtImagemEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -88,7 +88,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtM50" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeEditar" />
 
     <EditText
         android:id="@+id/metaCriar"
@@ -105,7 +105,7 @@
         android:textColorLink="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtM10" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMetaEditar" />
 
     <ImageButton
         android:id="@+id/btnImg1Criar"
@@ -115,7 +115,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtM5"
+        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
         app:srcCompat="@drawable/porquinho" />
 
     <ImageButton
@@ -128,7 +128,7 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btnImg3Criar"
         app:layout_constraintStart_toEndOf="@+id/btnImg1Criar"
-        app:layout_constraintTop_toBottomOf="@+id/txtM5"
+        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
         app:srcCompat="@drawable/celular" />
 
     <ImageButton
@@ -139,11 +139,11 @@
         android:layout_marginEnd="64dp"
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtM5"
+        app:layout_constraintTop_toBottomOf="@+id/txtImagemEditar"
         app:srcCompat="@drawable/casamento" />
 
     <Button
-        android:id="@+id/btnCriar"
+        android:id="@+id/btnEditar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"

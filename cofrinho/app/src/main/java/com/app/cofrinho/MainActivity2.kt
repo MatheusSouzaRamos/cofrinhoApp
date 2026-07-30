@@ -37,13 +37,13 @@ class MainActivity2 : AppCompatActivity() {
         }
 
 
-        binding.btnCriar.setOnClickListener {
+        binding.btnEditar.setOnClickListener {
             val nome = binding.nomeCriar.text.toString().trim()
             val metaStr = binding.metaCriar.text.toString().trim()
             val meta = metaStr.toDoubleOrNull()
-            val imagem: Long = 1 // IMPLEMENTAR
 
-            if(!nome.isEmpty() && meta != null && imagem != null) {
+
+            if(!nome.isEmpty() && meta != null) {
 
                 lifecycleScope.launch(Dispatchers.IO){
                     cofrinhoDao.save(Cofrinho(nome = nome, meta = meta))
