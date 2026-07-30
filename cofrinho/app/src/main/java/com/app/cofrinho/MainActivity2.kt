@@ -1,20 +1,15 @@
 package com.app.cofrinho
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
 import com.app.cofrinho.database.CofrinhoDatabase
-import com.app.cofrinho.database.entity.Cofrinho
 import com.app.cofrinho.databinding.ActivityMain2Binding
-import com.app.cofrinho.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -54,6 +49,10 @@ class MainActivity2 : AppCompatActivity() {
                     "O Cofrinho foi editado!",
                     Toast.LENGTH_SHORT).show();
                 finish()
+                val intent: Intent = Intent(this@MainActivity2, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+
 
             }else{
                 Toast.makeText(this,
