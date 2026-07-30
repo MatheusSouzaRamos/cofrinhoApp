@@ -40,23 +40,30 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+
+
+
         lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
+            val resultado = withContext(Dispatchers.IO) {
                 val busca = cofrinhoDao.count()
                 if (busca == 0) {
                     cofrinhoDao.save(Cofrinho(nome = "Cofrinho", meta = 0.0))
                 }
-            }
-        }
-
-
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
                 val cofrinho = cofrinhoDao.findById(1)
-                val prc = if (cofrinho.meta == 0.0) 0 else (cofrinhoDao.total(1) / cofrinho.meta) * 100
+                val total = cofrinhoDao.total(1)
+                val quantidade = cofrinhoDao.quantidade(1)
+                Triple(cofrinho, total, quantidade)
+            }
+
+            withContext(Dispatchers.Main){
+                val cofrinho = resultado.first
+                val total = resultado.second
+                val quantidade = resultado.third
+                val prc = if (cofrinho.meta == 0.0) 0.0 else (total / cofrinho.meta) * 100
+
                 binding.txtNome.text = cofrinho.nome + " " + String.format("%.2f", prc) + "%"
-                binding.txtTotal.text = "R$ " + String.format("%.2f", cofrinhoDao.total(1))
-                binding.txtQtd.text = "Quantidade: " + cofrinhoDao.quantidade(1).toString()
+                binding.txtTotal.text = "R$ " + String.format("%.2f", total)
+                binding.txtQtd.text = "Quantidade: " + quantidade.toString()
                 binding.txtM1.text = cofrinho.moeda1.toString()
                 binding.txtM50.text = cofrinho.moeda50.toString()
                 binding.txtM25.text = cofrinho.moeda25.toString()
@@ -64,6 +71,8 @@ class MainActivity : AppCompatActivity() {
                 binding.txtM5.text = cofrinho.moeda5.toString()
                 binding.txtN2.text = cofrinho.nota2.toString()
             }
+
+
         }
 
         binding.btnBM1.setOnClickListener {
