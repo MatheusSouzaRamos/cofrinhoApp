@@ -29,4 +29,7 @@ interface CofrinhoDao {
 
     @Query("UPDATE cofrinho SET nome = :nome, meta = :meta WHERE id = :id")
     suspend fun edit(id: Long, nome: String, meta: Double)
+
+    @Query("UPDATE cofrinho SET moeda1 = :moeda1, moeda50 = :moeda50, moeda25 = :moeda25, moeda10 = :moeda10, moeda5 = :moeda5, nota2 = :nota2 WHERE id = :id")
+    suspend fun update(id: Long, moeda1: Long, moeda50: Long, moeda25: Long, moeda10: Long, moeda5: Long, nota2: Long)
 }

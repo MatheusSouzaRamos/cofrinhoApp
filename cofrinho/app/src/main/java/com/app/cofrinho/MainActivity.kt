@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.app.cofrinho.database.CofrinhoDatabase
+import com.app.cofrinho.database.dao.CofrinhoDao
 import com.app.cofrinho.database.entity.Cofrinho
 import com.app.cofrinho.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
@@ -50,9 +51,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             withContext(Dispatchers.IO){
                 val cofrinho = cofrinhoDao.findById(1)
-
                 val prc = if (cofrinho.meta == 0.0) 0 else cofrinhoDao.total(1) / cofrinho.meta
-
                 binding.txtNome.text = cofrinho.nome + " " + prc.toString()
                 binding.txtTotal.text = "R$ " + cofrinhoDao.total(1).toString()
                 binding.txtQtd.text = "Quantidade: " + cofrinhoDao.quantidade(1).toString()
@@ -64,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 binding.txtN2.text = cofrinho.nota2.toString()
             }
         }
+
 
 
         binding.btnBM1.setOnClickListener {
@@ -102,93 +102,66 @@ class MainActivity : AppCompatActivity() {
             binding.txtN2.setText(valor.toString())
         }
 
+
+
+
         binding.btnAM1.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).moeda1
-                }
-                var valor = binding.txtM1.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtM1.setText("0")
-                }else{
-                    binding.txtM1.setText(valor.toString())
-                }
+            var valor = binding.txtM1.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtM1.setText("0")
+            }else{
+                binding.txtM1.setText(valor.toString())
             }
         }
 
         binding.btnAM50.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).moeda50
-                }
-                var valor = binding.txtM50.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtM50.setText("0")
-                }else{
-                    binding.txtM50.setText(valor.toString())
-                }
+            var valor = binding.txtM50.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtM50.setText("0")
+            }else{
+                binding.txtM50.setText(valor.toString())
             }
         }
 
         binding.btnAM25.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).moeda25
-                }
-                var valor = binding.txtM25.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtM25.setText("0")
-                }else{
-                    binding.txtM25.setText(valor.toString())
-                }
+            var valor = binding.txtM25.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtM25.setText("0")
+            }else{
+                binding.txtM25.setText(valor.toString())
             }
         }
 
         binding.btnAM10.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).moeda10
-                }
-                var valor = binding.txtM10.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtM10.setText("0")
-                }else{
-                    binding.txtM10.setText(valor.toString())
-                }
+            var valor = binding.txtM10.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtM10.setText("0")
+            }else{
+                binding.txtM10.setText(valor.toString())
             }
         }
 
         binding.btnAM5.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).moeda5
-                }
-                var valor = binding.txtM5.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtM5.setText("0")
-                }else{
-                    binding.txtM5.setText(valor.toString())
-                }
+            var valor = binding.txtM5.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtM5.setText("0")
+            }else{
+                binding.txtM5.setText(valor.toString())
             }
         }
 
         binding.btnAN2.setOnClickListener {
-            lifecycleScope.launch {
-                val busca = withContext(Dispatchers.IO){
-                    cofrinhoDao.findById(1).nota2
-                }
-                var valor = binding.txtN2.text.toString().toLong()
-                valor -= 1
-                if(valor < busca){
-                    binding.txtN2.setText("0")
-                }else{
-                    binding.txtN2.setText(valor.toString())
-                }
+            var valor = binding.txtN2.text.toString().toLong()
+            valor -= 1
+            if(valor <= 0){
+                binding.txtN2.setText("0")
+            }else{
+                binding.txtN2.setText(valor.toString())
             }
         }
 
@@ -197,6 +170,30 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnSave.setOnClickListener {
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    val m1 = binding.txtM1.text.toString().toLong()
+                    val m50 = binding.txtM50.text.toString().toLong()
+                    val m25 = binding.txtM25.text.toString().toLong()
+                    val m10 = binding.txtM10.text.toString().toLong()
+                    val m5 = binding.txtM5.text.toString().toLong()
+                    val n2 = binding.txtN2.text.toString().toLong()
 
+                    cofrinhoDao.update(
+                        id = 1,
+                        moeda1 = m1,
+                        moeda50 = m50,
+                        moeda25 = m25,
+                        moeda10 = m10,
+                        moeda5 = m5,
+                        nota2 = n2
+                    )
+
+                }
+            }
+
+        }
     }
+
 }
