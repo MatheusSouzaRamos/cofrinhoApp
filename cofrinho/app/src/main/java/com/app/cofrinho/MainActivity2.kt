@@ -36,7 +36,7 @@ class MainActivity2 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        
+
         binding.btnEditar.setOnClickListener {
             val nome = binding.nomeCriar.text.toString().trim()
             val metaStr = binding.metaCriar.text.toString().trim()
