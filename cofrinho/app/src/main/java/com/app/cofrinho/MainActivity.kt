@@ -72,7 +72,6 @@ class MainActivity : AppCompatActivity() {
                 binding.txtN2.text = cofrinho.nota2.toString()
             }
 
-
         }
 
         binding.btnBM1.setOnClickListener {

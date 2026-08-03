@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -59,6 +60,32 @@ class MainActivity2 : AppCompatActivity() {
                     "Preencha todos os campos!",
                     Toast.LENGTH_SHORT).show();
             }
+        }
+
+        binding.btnReset.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Confirmação")
+                .setMessage("Deseja realmente resetar?")
+                .setPositiveButton("Sim") { _, _ ->
+
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO){
+                            cofrinhoDao.reset(1)
+                        }
+                    }
+
+                    Toast.makeText(this,
+                        "O Cofrinho foi resetado!",
+                        Toast.LENGTH_SHORT).show();
+
+                    finish()
+                    val intent: Intent = Intent(this@MainActivity2, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
         }
 
         binding.btnRtn.setOnClickListener {
